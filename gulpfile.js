@@ -32,7 +32,9 @@ const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 
 //const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images));
 const mainTasks = gulp.parallel(copy, html, js);
+const img = gulp.series(images);
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 // const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher));
 
 gulp.task('default', dev);
+gulp.task('img', img);
